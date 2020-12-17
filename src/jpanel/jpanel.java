@@ -5,6 +5,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class jpanel extends JFrame
 {
@@ -29,8 +31,16 @@ public class jpanel extends JFrame
             knop = new JButton("Klik");
             tekstvak = new JTextField(10);
 
+            knop.addActionListener(new KnopKlikken());
+
             add(knop);
             add(tekstvak);
+        }
+//        klik function
+        class KnopKlikken implements ActionListener {
+            public void actionPerformed(ActionEvent e) {
+                tekstvak.setText("Ik heb geklikt!");
+            }
         }
     }
 
