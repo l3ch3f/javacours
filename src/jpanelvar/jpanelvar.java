@@ -14,7 +14,7 @@ public class jpanelvar extends JFrame
     public static void main(String[] args)
     {
         JFrame frame = new jpanelvar();
-        frame.setSize( 300, 200 );
+        frame.setSize( 800, 300 );
         frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Voorbeeld");
         JPanel paneel = new Paneel();
@@ -30,6 +30,7 @@ public class jpanelvar extends JFrame
         private int geboortemaand;
         private int geboortejaar;
         private String geboortedatum;
+        private int resultaat;
 
         public Paneel()
         {
@@ -39,13 +40,16 @@ public class jpanelvar extends JFrame
             geboortemaand = 3;
             geboortejaar = 1987;
             geboortedatum = geboortedag + "-" + geboortemaand + "-" + geboortejaar;
+            resultaat = geboortedag + geboortemaand;
         }
 
         public void paintComponent(Graphics g)
         {
             super.paintComponent(g);
 //                Zet de waarden op het scherm
-            g.drawString("Ik ben " + naam + " en ben " + leeftijd + " jaar oud en geboren op " + geboortedatum, 40, 40);
+            g.drawString("Ik ben " + naam + " en ben " + leeftijd + " jaar oud en geboren op " + geboortedatum, 100, 40);
+            g.drawString("De volgende zin laat zien dat mijn geboortedag en geboortemaand bij elkaar word opgeteld",100,70);
+            g.drawString(Integer.toString(geboortedag) + "+" + Integer.toString(geboortemaand) + "=" + Integer.toString(resultaat),100,100);
         }
     }
 
