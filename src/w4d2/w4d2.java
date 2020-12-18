@@ -20,13 +20,17 @@ public class w4d2 {
     static class Paneel extends JPanel {
         private double cijfer;
         public Paneel(){
-            cijfer = 5.6;
+            cijfer = 8.1;
         }
         public void paintComponent(Graphics g){
             super.paintComponent(g);
             if (cijfer > 5.5)
             {
                 g.drawString("Je hebt een voldoende!", 49,40);
+            }
+            else if (cijfer == 8.1)
+            {
+                g.drawString("Je hebt een 8!!",40,40);
             }
             else
             {
