@@ -27,18 +27,31 @@ public class form extends JFrame
         // inhoud van de panel
         static class Paneel extends JPanel
         {
-            private JTextField invoerVak, uitvoerVak;
-            private JLabel invoerLabel, uitvoerLabel;
+            private JTextField invoerVak, uitvoerVak, uitvoerVak2;
+            private JLabel invoerLabel, uitvoerLabel, uitvoerLabel2;
             private JButton knop;
 
             public Paneel()
             {
+                // Schakel lay-outmanager uit
+                setLayout(null);
+
                 // Maak de tekstvakken
                 invoerVak = new JTextField(10);
+                invoerVak.setHorizontalAlignment(JTextField.RIGHT);
+
                 uitvoerVak = new JTextField(10);
+                uitvoerVak.setHorizontalAlignment(JTextField.RIGHT);
+                uitvoerVak.setBackground(Color.YELLOW);
+
+                uitvoerVak2 = new JTextField(10);
+                uitvoerVak2.setHorizontalAlignment(JTextField.RIGHT);
+                uitvoerVak2.setBackground(Color.ORANGE);
+
                 // Maak de labels
                 invoerLabel = new JLabel("Maandsalaris");
                 uitvoerLabel = new JLabel("Jaarsalaris");
+                uitvoerLabel2 = new JLabel("Na 10 jaar");
 
                 // Maak de knop
                 knop = new JButton("Bereken");
@@ -50,11 +63,23 @@ public class form extends JFrame
                 add(uitvoerLabel);
                 add(uitvoerVak);
                 add(knop);
+                add(uitvoerLabel2);
+                add(uitvoerVak2);
+
+                // Bepaal van alle componenten de plaats en afmeting
+                invoerLabel.setBounds(80,50,120,20);
+                invoerVak.setBounds(200,50,90,20);
+                uitvoerVak.setBounds(200,80,90,20);
+                uitvoerLabel.setBounds(80,80,120,20);
+                knop.setBounds(300,50,100,20);
+                uitvoerLabel2.setBounds(80,110,120,20);
+                uitvoerVak2.setBounds(200,110,90,20);
 
             }
             // variables aanmaken
             private int jaarsalaris;
             private int maandsalaris;
+            private int maal10;
 
             // actionhandler
             class KnopHandler implements ActionListener {
@@ -67,6 +92,8 @@ public class form extends JFrame
                     jaarsalaris = 12 * maandsalaris;
                     // uitprinten van de resultaat.
                     uitvoerVak.setText(Integer.toString(jaarsalaris) + ",00");
+                    maal10 = jaarsalaris * 10;
+                    uitvoerVak2.setText(Integer.toString(maal10) + ",00");
                 }
             }
         }
