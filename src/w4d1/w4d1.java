@@ -12,7 +12,7 @@ public class w4d1 extends JFrame
 {
     public static void main(String[] args)
     {
-        JFrame frame = new w4d1();
+        JFrame frame = new JFrame();
         frame.setSize( 300, 200 );
         frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Voorbeeld");
@@ -23,6 +23,7 @@ public class w4d1 extends JFrame
     static class Paneel extends JPanel
     {
         private int leeftijd;
+        private String[] kleur = {"rood", "blauw", "groen", "geel"};
 
         public  Paneel()
         {
@@ -32,14 +33,22 @@ public class w4d1 extends JFrame
         {
             super.paintComponent(g);
             // zet de waarden op het scherm:
-            if (leeftijd > 18) {
-                g.drawString("Je mag een biertje of wijntje drinken!", 40, 40);
-            }
-            else {
-                g.drawString("Je bent niet oud genoeg", 40, 40);
+//            if (leeftijd > 18) {
+//                g.drawString("Je mag een biertje of wijntje drinken!", 40, 40);
+//            }
+//            else {
+//                g.drawString("Je bent niet oud genoeg", 40, 40);
+//            }
+            for(String k : kleur){
+                repaint();
+                g.drawString("De kleur is: "+k,40,40);
             }
         }
     }
 }
+
+
+
+
 
 
